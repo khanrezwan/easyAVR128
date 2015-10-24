@@ -98,8 +98,21 @@ int main()
 	{
 		rec = USART_receive();
 
-		USART_send(rec+1);
-		USART_send('\r');
+		if (rec == '0')
+		{
+			DDRC = 0xFF;
+			PORTC = 0xFF;
+		}
+		else if (rec=='1')
+		{
+			DDRC = 0xFF;
+			PORTC = 0x00;
+		}
+		else{
+
+		}
+USART_send(rec+1);
+					USART_send('\r');
 
 	}
 }
